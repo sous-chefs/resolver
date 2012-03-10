@@ -10,7 +10,10 @@ Set the resolver attributes in a role, for example from my base.rb:
 
     "resolver" => {
       "nameservers" => ["10.13.37.120", "10.13.37.40"],
-      "search" => "int.example.org"
+      "search" => "int.example.org",
+      "options" => {
+      	"timeout" => 2, "rotate" => nil
+	}
     }
 
 The resulting /etc/resolv.conf will look like:
@@ -19,6 +22,7 @@ The resulting /etc/resolv.conf will look like:
     search int.example.org
     nameserver 10.13.37.120
     nameserver 10.13.37.40
+    options timeout:2 rotate
 
 LICENSE AND AUTHOR
 ==================

@@ -27,3 +27,10 @@ attribute "resolver/nameservers",
   :type => "array",
   :default => [""]
 
+attribute "resolver/options",
+  :display_name => "Resolver Options",
+  :description => "Default resolver options",
+  :type => "hash",
+  :default => {}
+
+
