@@ -32,5 +32,3 @@ attribute "resolver/options",
   :description => "Default resolver options",
   :type => "hash",
   :default => {}
-
-
