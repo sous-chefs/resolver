@@ -1,3 +1,7 @@
+## v1.0.2
+
+* 'node' went missing in the template.
+
 ## v1.0.0
 
 * [COOK-1089] - accept resolver options via attributes
