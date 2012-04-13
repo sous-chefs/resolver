@@ -1,3 +1,3 @@
-default[:resolver][:search] = domain
-default[:resolver][:nameservers] = []
-default[:resolver][:options] = {}
+default['resolver']['search'] = domain
+default['resolver']['nameservers'] = []
+default['resolver']['options'] = {}
