@@ -29,6 +29,7 @@ else
     owner "root"
     group "root"
     mode 0644
+    # This syntax makes the resolver sub-keys available directly
     variables node['resolver']
   end
 end
