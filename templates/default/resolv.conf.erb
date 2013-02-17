@@ -2,6 +2,6 @@ search <%= @search %>
 <% @nameservers.each do |nameserver| -%>
 nameserver <%= nameserver %>
 <% end %>
-<% unless @options.empty? -%>
+<% if @options && @options.any? -%>
 options <%= @options.map { |opt, val| val ? "#{opt}:#{val}" : opt }.sort.join(" ") %>
 <% end -%>
