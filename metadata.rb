@@ -9,7 +9,7 @@ version           "1.1.1"
 recipe "resolver", "Configures /etc/resolv.conf via attributes"
 recipe "resolver::from_server_role", "Manages nameservers from role with explicitly set servers"
 
-%w{ ubuntu debian fedora centos redhat freebsd openbsd macosx }.each do |os|
+%w{ ubuntu debian fedora centos redhat freebsd openbsd macosx solaris2 }.each do |os|
   supports os
 end
 
