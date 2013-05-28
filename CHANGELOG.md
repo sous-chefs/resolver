@@ -1,3 +1,9 @@
+## v1.1.2:
+
+### Bug
+
+- [COOK-2977]: resolver cookbook has foodcritic failures
+
 ## v1.1.0:
 
 * [COOK-1242] - collect nameservers using a server role, adds
