@@ -2,7 +2,7 @@ name              "resolver"
 maintainer        "Opscode, Inc."
 maintainer_email  "cookbooks@opscode.com"
 license           "Apache 2.0"
-description       "Configures /etc/resolv.conf via attributes"
+description       "Configures nameservers via attributes"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version           "1.1.3"
 
