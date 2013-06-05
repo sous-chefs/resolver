@@ -6,10 +6,10 @@ description       "Configures /etc/resolv.conf via attributes"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version           "1.1.3"
 
-recipe "resolver", "Configures /etc/resolv.conf via attributes"
+recipe "resolver", "Configures nameservers via attributes"
 recipe "resolver::from_server_role", "Manages nameservers from role with explicitly set servers"
 
-%w{ ubuntu debian fedora centos redhat freebsd openbsd macosx }.each do |os|
+%w{ ubuntu debian fedora centos redhat freebsd openbsd macosx windows }.each do |os|
   supports os
 end
 
