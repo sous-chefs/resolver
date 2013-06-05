@@ -1,8 +1,18 @@
 Description
 ===========
 
-Configures /etc/resolv.conf, unless the nameservers attribute is
-empty.
+This recipe is intended to change/create the DNS resolver configuration.
+
+The configuration is not changed if the nameservers attribute is empty.
+
+Platform
+--------
+* Debian, Ubuntu
+* CentOS, Red Hat, Fedora
+* FreeBSD, OpenBSD
+* MacOSX
+* Windows Server 2008 (R1, R2)
+* Windows Server 2012
 
 Attributes
 ==========
@@ -12,24 +22,23 @@ See `attributes/default.rb` for default values.
 * `node['resolver']['search']` - the search domain to use
 * `node['resolver']['nameservers']` - Required, an array of nameserver
   IP address strings; the default is an empty array, and the default
-  recipe will not change resolv.conf if this is not set. See
+  recipe will not change your configuration if this is not set. See
   __Usage__.
 * `node['resolver']['options']` - a hash of resolv.conf options. See
-  __Usage__ for examples.
+  __Usage__ for examples. (Does not work on Windows plataforms)
 
 Recipes
 =======
 
-Use one of the recipes to set up /etc/resolv.conf for your system(s).
+Use one of the recipes to set up the resolver configuration for your system(s).
 
 ## default
 
-Configure /etc/resolv.conf based on attributes.
+Configure your nameservers based on the attributes defined.
 
 ## from_server_role
 
-Configure /etc/resolv.conf's nameservers based on a search for a
-specific role (by Chef environment).
+Configure nameservers based on a search for a specific role (by Chef environment).
 
 Usage
 =====
@@ -44,7 +53,7 @@ Using the default recipe, set the resolver attributes in a role, for example fro
       }
     }
 
-The resulting /etc/resolv.conf will look like:
+The resulting /etc/resolv.conf on linux platforms will look like:
 
     domain int.example.org
     search int.example.org
