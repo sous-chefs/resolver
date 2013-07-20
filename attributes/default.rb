@@ -21,3 +21,5 @@ default['resolver']['search'] = node['domain']
 default['resolver']['nameservers'] = []
 default['resolver']['options'] = {}
 default['resolver']['server_role'] = 'nameserver'
+default['resolver']['search_query'] = 'role:#{node["resolver"]["server_role"]} AND ipaddress:*'
+default['resolver']['search_attributes'] = [ 'ipaddress' ]
