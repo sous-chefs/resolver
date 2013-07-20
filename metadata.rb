@@ -40,3 +40,15 @@ attribute "resolver/server_role",
   :description => "Name of the role applied to the DNS resolver node",
   :type => "string",
   :default => "nameserver"
+
+attribute "resolver/search_query",
+  :display_name => "Search query to execute",
+  :description => "Use arbitrary searches to find resolvers",
+  :type => "string",
+  :default => 'role:#{node["resolver"]["server_role"]} AND ipaddress:*'
+
+attribute "resolver/search_attributes",
+  :display_name => "Array of attributes to pull out of search results",
+  :description => "These attributes will be used in the 'nameserver' lines",
+  :type => "string",
+  :default => '["ipaddress"]'
