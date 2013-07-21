@@ -16,6 +16,10 @@ See `attributes/default.rb` for default values.
   __Usage__.
 * `node['resolver']['options']` - a hash of resolv.conf options. See
   __Usage__ for examples.
+* `nodes['resolver']['search_query']` - search query to execute to
+  find resolvers
+* `nodes['resolver']['search_attributes']` - these attributes will be
+  used in 'nameserver' lines
 
 Recipes
 =======
@@ -30,6 +34,10 @@ Configure /etc/resolv.conf based on attributes.
 
 Configure /etc/resolv.conf's nameservers based on a search for a
 specific role (by Chef environment).
+
+## from_search
+
+Configure /etc/resolv.conf's nameservers based on an arbitrary search.
 
 Usage
 =====
@@ -55,6 +63,23 @@ The resulting /etc/resolv.conf will look like:
 Using the `from_server_role` recipe, assign the
 `node['resolver']['server_role']` attribute's role to a system that is
 the DNS resolver in the same Chef environment.
+
+The from_search recipe can be used to find resolvers based on any search query.
+The two attributes involved are `search_query` and `search_attributes`.
+`search_query` defines the query to be used - interpolation is delayed, so
+strings like `"#{node.chef_environment}"` will produce the output you'd expect.
+`search_attributes` is an array that defines which attributes will be pulled
+from the search results to be used as the actual server addresses. Typically,
+you should just use the default, which is just `['ipaddress']`. If you want
+any IPv6 addresses to be included as well, you can set add to this array to
+`['ipaddress', 'ip6address']`.
+
+This example JSON will write a /etc/resolv.conf containing servers in the
+same environment as this machine, with the resolver role.
+
+    "resolver": {
+      "search_query": "role:resolver AND chef_environment:#{node.chef_environment}"
+    }
 
 License and Author
 ==================
