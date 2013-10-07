@@ -22,7 +22,7 @@ nameservers =
     map {|node| node['ipaddress'] } +
   node['resolver']['nameservers']
 
-template "/etc/resolv.conf" do
+template node['resolver']['config_file'] do
   source "resolv.conf.erb"
   owner "root"
   group "root"
