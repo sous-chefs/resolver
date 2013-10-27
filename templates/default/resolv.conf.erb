@@ -1,4 +1,6 @@
+<% if @search && @search.present? -%>
 search <%= @search %>
+<% end -%>
 <% @nameservers.each do |nameserver| -%>
 nameserver <%= nameserver %>
 <% end %>
