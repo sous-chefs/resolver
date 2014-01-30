@@ -32,5 +32,6 @@ else
     # This syntax makes the resolver sub-keys available directly
     variables node['resolver']
     manage_symlink_source false
+    force_unlink true
   end
 end
