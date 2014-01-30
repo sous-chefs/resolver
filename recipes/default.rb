@@ -31,5 +31,6 @@ else
     mode 0644
     # This syntax makes the resolver sub-keys available directly
     variables node['resolver']
+    manage_symlink_source false
   end
 end
