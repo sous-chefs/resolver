@@ -26,8 +26,7 @@ nameservers =
   node['resolver']['nameservers']
 
 if nameservers.empty?
-  Chef::Log.warn("#{cookbook_name}::#{recipe_name} did not find any nameservers.")
-  Chef::Log.info("#{cookbook_name}::#{recipe_name} will exit to prevent a potential breaking change in /etc/resolv.conf.")
+  Chef::Log.warn("#{cookbook_name}::#{recipe_name} did not find any nameservers, skipping updating /etc/resolv.conf.")
   return
 end
 
