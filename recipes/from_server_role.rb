@@ -17,8 +17,11 @@
 # limitations under the License.
 #
 
+node.default_unless['resolver']['chef_search'] =
+  "role:#{node['resolver']['server_role']} AND chef_environment:#{node.chef_environment}"
+
 nameservers =
-  search(:node, "role:#{node['resolver']['server_role']} AND chef_environment:#{node.chef_environment}")
+  search(:node, "role:#{node['resolver']['server_role']} AND chef_environment:#{node.chef_environment}") # ~FC003
   .map { |node| node['ipaddress'] } +
   node['resolver']['nameservers']
 
