@@ -35,7 +35,7 @@ template "/etc/resolv.conf" do
   mode 0644
   variables(
     'search' => node['resolver']['search'],
-    'nameservers' => nameservers,
+    'nameservers' => nameservers.sort,
     'options' => node['resolver']['options']
   )
 end
