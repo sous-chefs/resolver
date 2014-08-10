@@ -25,7 +25,11 @@ nameservers =
 template "/etc/resolv.conf" do
   source "resolv.conf.erb"
   owner "root"
-  group "root"
+  if platform?("freebsd")
+    group 0
+  else
+    group "root"
+  end
   mode 0644
   variables(
     'search' => node['resolver']['search'],
