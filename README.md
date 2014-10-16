@@ -40,7 +40,6 @@ Using the default recipe, set the resolver attributes in a role, for example fro
 The resulting `/etc/resolv.conf` will look like:
 
 ```text
-domain int.example.org
 search int.example.org
 nameserver 10.13.37.120
 nameserver 10.13.37.40
