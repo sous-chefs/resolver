@@ -1,6 +1,6 @@
 resolver Cookbook
 =================
-Configures /etc/resolv.conf, unless the nameservers attribute is empty.
+Configures /etc/resolv.conf, unless the nameservers attribute is empty. Search will be excluded if empty.
 
 
 Attributes
