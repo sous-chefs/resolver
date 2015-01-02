@@ -40,3 +40,9 @@ attribute "resolver/server_role",
   :description => "Name of the role applied to the DNS resolver node",
   :type => "string",
   :default => "nameserver"
+
+attribute "resolver/sortlist",
+  :display_name => "Resolver Sort List",
+  :description => "List of IP Addresses/Network Mask, separted by a space",
+  :type =>"string",
+  :default => ""
