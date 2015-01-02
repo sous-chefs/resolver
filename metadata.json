@@ -1,0 +1,77 @@
+{
+  "name": "resolver",
+  "version": "1.2.0",
+  "description": "Configures /etc/resolv.conf via attributes",
+  "long_description": "resolver Cookbook\n=================\nConfigures /etc/resolv.conf, unless the nameservers attribute is empty. Search will be excluded if empty.\n\n\nAttributes\n----------\nSee `attributes/default.rb` for default values.\n\n- `node['resolver']['search']` - the search domain to use\n- `node['resolver']['nameservers']` - Required, an array of nameserver IP address strings; the default is an empty array, and the default recipe will not change resolv.conf if this is not set. See __Usage__.\n- `node['resolver']['options']` - a hash of resolv.conf options. See __Usage__ for examples.\n\n\nRecipes\n-------\nUse one of the recipes to set up /etc/resolv.conf for your system(s).\n\n### default\nConfigure /etc/resolv.conf based on attributes.\n\n### from_server_role\nConfigure /etc/resolv.conf's nameservers based on a search for a specific role (by Chef environment).\n\n\nUsage\n-----\nUsing the default recipe, set the resolver attributes in a role, for example from my base.rb:\n\n```ruby\n\"resolver\" => {\n  \"nameservers\" => [\"10.13.37.120\", \"10.13.37.40\"],\n  \"search\" => \"int.example.org\",\n  \"options\" => {\n    \"timeout\" => 2, \"rotate\" => nil\n  }\n}\n```\n\nThe resulting `/etc/resolv.conf` will look like:\n\n```text\nsearch int.example.org\nnameserver 10.13.37.120\nnameserver 10.13.37.40\noptions timeout:2 rotate\n```\n\nUsing the `from_server_role` recipe, assign the `node['resolver']['server_role']` attribute's role to a system that is the DNS resolver in the same Chef environment.\n\n\nLicense & Authors\n-----------------\n- Author:: Joshua Timberman (<joshua@opscode.com>)\n\n```text\nCopyright 2009-2012, Opscode, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n```\n",
+  "maintainer": "Opscode, Inc.",
+  "maintainer_email": "cookbooks@opscode.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "freebsd": ">= 0.0.0",
+    "openbsd": ">= 0.0.0",
+    "macosx": ">= 0.0.0",
+    "solaris": ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "resolver": {
+      "display_name": "Resolver",
+      "description": "Hash of Resolver attributes",
+      "type": "hash"
+    },
+    "resolver/search": {
+      "display_name": "Resolver Search",
+      "description": "Default domain to search",
+      "default": "domain"
+    },
+    "resolver/nameservers": {
+      "display_name": "Resolver Nameservers",
+      "description": "Default nameservers",
+      "type": "array",
+      "default": [
+
+      ]
+    },
+    "resolver/options": {
+      "display_name": "Resolver Options",
+      "description": "Default resolver options",
+      "type": "hash",
+      "default": {
+      }
+    },
+    "resolver/server_role": {
+      "display_name": "Resolver Server Role",
+      "description": "Name of the role applied to the DNS resolver node",
+      "type": "string",
+      "default": "nameserver"
+    },
+    "resolver/sortlist": {
+      "display_name": "Resolver Sort List",
+      "description": "List of IP Addresses/Network Mask, separated by a space",
+      "type": "string",
+      "default": ""
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "resolver": "Configures /etc/resolv.conf via attributes",
+    "resolver::from_server_role": "Manages nameservers from role with explicitly set servers"
+  }
+}
