@@ -9,6 +9,7 @@ See `attributes/default.rb` for default values.
 
 - `node['resolver']['search']` - the search domain to use
 - `node['resolver']['nameservers']` - Required, an array of nameserver IP address strings; the default is an empty array, and the default recipe will not change resolv.conf if this is not set. See __Usage__.
+- `node['resolver']['sortlist']` - Optional sortlist specified by IP-address-netmaks pairs in a string format each pair separated by a space.
 - `node['resolver']['options']` - a hash of resolv.conf options. See __Usage__ for examples.
 
 
