@@ -29,8 +29,9 @@ Using the default recipe, set the resolver attributes in a role, for example fro
 
 ```ruby
 "resolver" => {
-  "nameservers" => ["10.13.37.120", "10.13.37.40"],
+  "nameservers" => ["10.13.37.120", "10.13.37.40", "10.40.13.13"],
   "search" => "int.example.org",
+  "sortlist" => "10.13.0.0/255.255.0.0 10.40.0.0/255.255.0.0",
   "options" => {
     "timeout" => 2, "rotate" => nil
   }
@@ -43,6 +44,8 @@ The resulting `/etc/resolv.conf` will look like:
 search int.example.org
 nameserver 10.13.37.120
 nameserver 10.13.37.40
+nameserver 10.40.13.13
+sortlist 10.0.0.0/255.0.0.0 10 10.40.0.0/255.255.0.0
 options timeout:2 rotate
 ```
 
