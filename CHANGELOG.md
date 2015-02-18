@@ -6,7 +6,7 @@ This file is used to list changes made in each version of the resolver cookbook.
 v1.1.4
 ------
 ### Improvement
-- **[COOK-3375](https://tickets.opscode.com/browse/COOK-3375)** - Add Solaris support
+- **[COOK-3375](https://tickets.chef.io/browse/COOK-3375)** - Add Solaris support
 
 v1.1.2
 ------
