@@ -22,6 +22,12 @@ nameservers =
     map {|node| node['ipaddress'] } +
   node['resolver']['nameservers']
 
+if nameservers.empty?
+  Chef::Log.warn("#{cookbook_name}::#{recipe_name} did not find any nameservers.")
+  Chef::Log.info("#{cookbook_name}::#{recipe_name} will exit to prevent a potential breaking change in /etc/resolv.conf.")
+  return
+end
+
 template "/etc/resolv.conf" do
   source "resolv.conf.erb"
   owner "root"
@@ -29,7 +35,7 @@ template "/etc/resolv.conf" do
   mode 0644
   variables(
     'search' => node['resolver']['search'],
-    'nameservers' => nameservers,
+    'nameservers' => nameservers.sort,
     'options' => node['resolver']['options']
   )
 end

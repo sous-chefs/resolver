@@ -1,7 +1,8 @@
-resolver Cookbook CHANGELOG
-===========================
-This file is used to list changes made in each version of the resolver cookbook.
-
+v1.2.0 (2014-10-16)
+-------------------
+- [#11] Improve safety and sanity of cookbook
+- [#12] README update
+- [#14] Exclude search in template if attribute is empty
 
 v1.1.4
 ------
