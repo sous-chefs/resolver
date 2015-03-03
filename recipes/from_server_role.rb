@@ -17,10 +17,14 @@
 # limitations under the License.
 #
 
-nameservers =
-  search(:node, "role:#{node['resolver']['server_role']} AND chef_environment:#{node.chef_environment}").
-    map {|node| node['ipaddress'] } +
-  node['resolver']['nameservers']
+if Chef::Config[:solo] && !node['vagrant'] == true
+  Chef::Log.warn('This recipe uses search. Chef Solo does not support search.')
+else
+  nameservers =
+    search(:node, "role:#{node['resolver']['server_role']} AND chef_environment:#{node.chef_environment}")
+    . map { |node| node['ipaddress'] } +
+    node['resolver']['nameservers']
+end
 
 if nameservers.empty?
   Chef::Log.warn("#{cookbook_name}::#{recipe_name} did not find any nameservers.")
@@ -28,10 +32,10 @@ if nameservers.empty?
   return
 end
 
-template "/etc/resolv.conf" do
-  source "resolv.conf.erb"
-  owner "root"
-  group "root"
+template '/etc/resolv.conf' do
+  source 'resolv.conf.erb'
+  owner 'root'
+  group 'root'
   mode 0644
   variables(
     'search' => node['resolver']['search'],
@@ -40,4 +44,3 @@ template "/etc/resolv.conf" do
     'options' => node['resolver']['options']
   )
 end
-
