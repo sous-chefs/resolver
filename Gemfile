@@ -18,5 +18,5 @@ group :integration do
   gem 'kitchen-vagrant'
   gem 'test-kitchen', '~> 1.2.0'
   gem 'travis-lint'
-  # gem 'vagrant'
+  gem 'vagrant'
 end
