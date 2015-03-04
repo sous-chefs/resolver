@@ -21,14 +21,17 @@ if Chef::Config[:solo] && !node['vagrant'] == true
   Chef::Log.warn('This recipe uses search. Chef Solo does not support search.')
 else
   nameservers =
-    search(:node, "role:#{node['resolver']['server_role']} AND chef_environment:#{node.chef_environment}")
+    search(:node, "role:#{node['resolver']['server_role']} \
+    AND chef_environment:#{node.chef_environment}")
     . map { |node| node['ipaddress'] } +
     node['resolver']['nameservers']
 end
 
 if nameservers.empty?
-  Chef::Log.warn("#{cookbook_name}::#{recipe_name} did not find any nameservers.")
-  Chef::Log.info("#{cookbook_name}::#{recipe_name} will exit to prevent a potential breaking change in /etc/resolv.conf.")
+  Chef::Log.warn("#{cookbook_name}::#{recipe_name} did not find \
+  any nameservers.")
+  Chef::Log.info("#{cookbook_name}::#{recipe_name} will exit to prevent a \
+  potential breaking change in /etc/resolv.conf.")
   return
 end
 

@@ -43,7 +43,8 @@ namespace :integration do
 
     if run_kitchen
       Kitchen.logger = Kitchen.default_file_logger
-      @loader = Kitchen::Loader::YAML.new(project_config: './.kitchen.cloud.yml')
+      yaml_options = { :project_config => './kitchen.cloud.yml' }
+      @loader = Kitchen::Loader::YAML.new(yaml_options)
       config = Kitchen::Config.new(loader: @loader)
       config.instances.each do |instance|
         instance.test(:always)

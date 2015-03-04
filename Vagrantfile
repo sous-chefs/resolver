@@ -61,15 +61,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # The path to the Berksfile to use with Vagrant Berkshelf
   # config.berkshelf.berksfile_path = './Berksfile'
 
-  # Enabling the Berkshelf plugin. To enable this globally, add this configuration
+  # Enabling the Berkshelf plugin. To enable this globally,
+  # add this configuration
   # option to your ~/.vagrant.d/Vagrantfile file
   config.berkshelf.enabled = true
 
-  # An array of symbols representing groups of cookbook described in the Vagrantfile
+  # An array of symbols representing groups of cookbook
+  # described in the Vagrantfile
   # to exclusively install and copy to Vagrant's shelf.
   # config.berkshelf.only = []
 
-  # An array of symbols representing groups of cookbook described in the Vagrantfile
+  # An array of symbols representing groups of cookbook
+  # described in the Vagrantfile
   # to skip installing and copying to Vagrant's shelf.
   # config.berkshelf.except = []
 
