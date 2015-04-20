@@ -7,10 +7,10 @@ Attributes
 ----------
 See `attributes/default.rb` for default values.
 
-- `node['resolver']['search']` - the search domain to use
+- `node['resolver']['search']` - Search list for host-name lookup.
 - `node['resolver']['nameservers']` - Required, an array of nameserver IP address strings; the default is an empty array, and the default recipe will not change resolv.conf if this is not set. See __Usage__.
 - `node['resolver']['options']` - a hash of resolv.conf options. See __Usage__ for examples.
-
+- `node['resolver']['domain']` - Local domain name. if `nil`, the domain is determined from the local hostname returned by `gethostname(2)`.
 
 Recipes
 -------
