@@ -18,8 +18,8 @@
 #
 
 nameservers =
-  search(:node, "role:#{node['resolver']['server_role']} AND chef_environment:#{node.chef_environment}").
-    map {|node| node['ipaddress'] } +
+  search(:node, "role:#{node['resolver']['server_role']} AND chef_environment:#{node.chef_environment}")
+  .map { |node| node['ipaddress'] } +
   node['resolver']['nameservers']
 
 if nameservers.empty?
@@ -28,10 +28,10 @@ if nameservers.empty?
   return
 end
 
-template "/etc/resolv.conf" do
-  source "resolv.conf.erb"
-  owner "root"
-  group "root"
+template '/etc/resolv.conf' do
+  source 'resolv.conf.erb'
+  owner 'root'
+  group 'root'
   mode 0644
   variables(
     'search' => node['resolver']['search'],
@@ -39,4 +39,3 @@ template "/etc/resolv.conf" do
     'options' => node['resolver']['options']
   )
 end
-
