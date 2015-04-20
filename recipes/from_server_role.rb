@@ -31,7 +31,7 @@ end
 template '/etc/resolv.conf' do
   source 'resolv.conf.erb'
   owner 'root'
-  group 'root'
+  group node['root_group']
   mode '0644'
   variables(
     'search' => node['resolver']['search'],
