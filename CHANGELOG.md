@@ -1,3 +1,13 @@
+Unreleased
+---
+- Add rubocop file and resolve all rubocop warnings
+- Update the contributing doc to match the new process
+- Use strings for file modes to preserve the leading 0s
+- Add support the domain resolv.conf config option
+- Add a gitignore and chefignore file
+- Added a header to the resolv.conf file stating that chef editing the file
+- Use the Ohai 'root_group' attribute for the config file to support non-Linux *nix platforms=
+
 v1.2.0 (2014-10-16)
 -------------------
 - [#11] Improve safety and sanity of cookbook
