@@ -3,6 +3,11 @@ resolver Cookbook
 Configures /etc/resolv.conf, unless the nameservers attribute is empty. Search will be excluded if empty.
 
 
+Requirements
+------------
+### Chef
+Chef version 11.14+ and Ohai 7.2.0+ are required.
+
 Attributes
 ----------
 See `attributes/default.rb` for default values.
