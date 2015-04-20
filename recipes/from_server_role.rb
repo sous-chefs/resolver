@@ -32,7 +32,7 @@ template '/etc/resolv.conf' do
   source 'resolv.conf.erb'
   owner 'root'
   group 'root'
-  mode 0644
+  mode '0644'
   variables(
     'search' => node['resolver']['search'],
     'nameservers' => nameservers.sort,
