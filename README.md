@@ -1,5 +1,7 @@
 resolver Cookbook
 =================
+[![Build Status](https://travis-ci.org/opscode-cookbooks/resolver.svg?branch=master)](https://travis-ci.org/opscode-cookbooks/resolver)
+
 Configures /etc/resolv.conf, unless the nameservers attribute is empty. Search will be excluded if empty.
 
 
