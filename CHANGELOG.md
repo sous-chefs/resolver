@@ -1,3 +1,7 @@
+resolver Cookbook CHANGELOG
+===========================
+This file is used to list changes made in each version of the resolver cookbook.
+
 v1.3.0 (2015-10-16)
 -------------------
 - Add rubocop file and resolve all rubocop warnings
