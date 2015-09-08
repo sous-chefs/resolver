@@ -1,6 +1,7 @@
 resolver Cookbook
 =================
-[![Build Status](https://travis-ci.org/opscode-cookbooks/resolver.svg?branch=master)](https://travis-ci.org/opscode-cookbooks/resolver)
+[![Build Status](https://travis-ci.org/chef-cookbooks/resolver.svg?branch=master)](http://travis-ci.org/chef-cookbooks/resolver)
+[![Cookbook Version](https://img.shields.io/cookbook/v/resolver.svg)](https://supermarket.chef.io/cookbooks/resolver)
 
 Configures /etc/resolv.conf, unless the nameservers attribute is empty. Search will be excluded if empty.
 
