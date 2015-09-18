@@ -17,14 +17,16 @@
 # limitations under the License.
 #
 
+node.default_unless['resolver']['chef_search'] =
+  "role:#{node['resolver']['server_role']} AND chef_environment:#{node.chef_environment}"
+
 nameservers =
-  search(:node, "role:#{node['resolver']['server_role']} AND chef_environment:#{node.chef_environment}")
+  search(:node, "role:#{node['resolver']['server_role']} AND chef_environment:#{node.chef_environment}") # ~FC003
   .map { |node| node['ipaddress'] } +
   node['resolver']['nameservers']
 
 if nameservers.empty?
-  Chef::Log.warn("#{cookbook_name}::#{recipe_name} did not find any nameservers.")
-  Chef::Log.info("#{cookbook_name}::#{recipe_name} will exit to prevent a potential breaking change in /etc/resolv.conf.")
+  Chef::Log.warn("#{cookbook_name}::#{recipe_name} did not find any nameservers, skipping updating /etc/resolv.conf.")
   return
 end
 
