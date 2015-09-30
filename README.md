@@ -1,5 +1,6 @@
 resolver Cookbook
 =================
+
 [![Build Status](https://travis-ci.org/chef-cookbooks/resolver.svg?branch=master)](http://travis-ci.org/chef-cookbooks/resolver)
 [![Cookbook Version](https://img.shields.io/cookbook/v/resolver.svg)](https://supermarket.chef.io/cookbooks/resolver)
 
@@ -8,8 +9,20 @@ Configures /etc/resolv.conf, unless the nameservers attribute is empty. Search w
 
 Requirements
 ------------
-### Chef
-Chef version 11.14+ and Ohai 7.2.0+ are required.
+#### Platforms
+- Debian/Ubuntu
+- RHEL/CentOS/Scientific/Amazon/Oracle
+- Fedora
+- FreeBSD/OpenBSD
+- Mac OS X
+- Solaris
+
+#### Chef
+- Chef 11+
+
+#### Cookbooks
+- none
+
 
 Attributes
 ----------
