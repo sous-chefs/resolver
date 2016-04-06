@@ -4,7 +4,7 @@ maintainer_email  'cookbooks@chef.io'
 license           'Apache 2.0'
 description       'Configures /etc/resolv.conf via attributes'
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           '1.3.1'
+version           '1.3.2'
 
 recipe 'resolver', 'Configures /etc/resolv.conf via attributes'
 recipe 'resolver::from_server_role', 'Manages nameservers from role with explicitly set servers'
@@ -24,7 +24,8 @@ attribute 'resolver',
 attribute 'resolver/search',
   display_name: 'Resolver Search',
   description: 'Default domain to search',
-  default: 'domain'
+  type: 'array',
+  default: [ 'domain' ]
 
 attribute 'resolver/nameservers',
   display_name: 'Resolver Nameservers',

@@ -23,6 +23,10 @@ if node['resolver']['nameservers'].empty? || node['resolver']['nameservers'][0].
   Chef::Log.warn("#{cookbook_name}::#{recipe_name} requires that attribute ['resolver']['nameservers'] is set.")
   Chef::Log.info("#{cookbook_name}::#{recipe_name} exiting to prevent a potential breaking change in /etc/resolv.conf.")
   return
+elsif node['resolver']['search'].count > 6 || node['resolver']['search'].join.size > 256
+  Chef::Log.warn("#{cookbook_name}::#{recipe_name} attribute ['resolver']['search'] can contain no more than 6 search domains and a total of 256 characters")
+  Chef::Log.info("#{cookbook_name}::#{recipe_name} exiting to prevent a potential breaking change in /etc/resolv.conf.")
+  return
 else
   template '/etc/resolv.conf' do
     source 'resolv.conf.erb'
