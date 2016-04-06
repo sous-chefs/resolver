@@ -28,6 +28,10 @@ nameservers =
 if nameservers.empty?
   Chef::Log.warn("#{cookbook_name}::#{recipe_name} did not find any nameservers, skipping updating /etc/resolv.conf.")
   return
+elsif node['resolver']['search'].count > 6 || node['resolver']['search'].join.size > 256
+  Chef::Log.warn("#{cookbook_name}::#{recipe_name} attribute ['resolver']['search'] can contain no more than 6 search domains and a total of 256 characters")
+  Chef::Log.info("#{cookbook_name}::#{recipe_name} exiting to prevent a potential breaking change in /etc/resolv.conf.")
+  return
 end
 
 template '/etc/resolv.conf' do
