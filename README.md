@@ -28,7 +28,7 @@ Configures /etc/resolv.conf, unless the nameservers attribute is empty. Search w
 
 See `attributes/default.rb` for default values.
 
-- `node['resolver']['search']` - Search list for host-name lookup.
+- `node['resolver']['search']` - Search list for host-name lookup. Limited to 6 elements and 256 characters.
 - `node['resolver']['nameservers']` - Required, an array of nameserver IP address strings; the default is an empty array, and the default recipe will not change resolv.conf if this is not set. See **Usage**.
 - `node['resolver']['options']` - a hash of resolv.conf options. See **Usage** for examples.
 - `node['resolver']['domain']` - Local domain name. if `nil`, the domain is determined from the local hostname returned by `gethostname(2)`.
@@ -46,7 +46,7 @@ Using the default recipe, set the resolver attributes in a role, for example fro
 ```ruby
 "resolver" => {
   "nameservers" => ["10.13.37.120", "10.13.37.40"],
-  "search" => "int.example.org",
+  "search" => [ "int.example.org", "ext.example.org" ],
   "options" => {
     "timeout" => 2, "rotate" => nil
   }
@@ -56,7 +56,7 @@ Using the default recipe, set the resolver attributes in a role, for example fro
 The resulting `/etc/resolv.conf` will look like:
 
 ```text
-search int.example.org
+search int.example.org ext.example.org
 nameserver 10.13.37.120
 nameserver 10.13.37.40
 options timeout:2 rotate

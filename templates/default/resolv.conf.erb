@@ -5,8 +5,8 @@
 <% unless @domain.nil? -%>
 domain <%= @domain %>
 <% end -%>
-<% unless @search.nil? -%>
-search <%= @search %>
+<% unless @search.empty? -%>
+search <%= @search.join(" ") %>
 <% end -%>
 <% @nameservers.each do |nameserver| -%>
 nameserver <%= nameserver %>
