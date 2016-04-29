@@ -15,31 +15,3 @@ end
 
 source_url 'https://github.com/chef-cookbooks/resolver' if respond_to?(:source_url)
 issues_url 'https://github.com/chef-cookbooks/resolver/issues' if respond_to?(:issues_url)
-
-attribute 'resolver',
-  display_name: 'Resolver',
-  description: 'Hash of Resolver attributes',
-  type: 'hash'
-
-attribute 'resolver/search',
-  display_name: 'Resolver Search',
-  description: 'Default domain to search',
-  default: 'domain'
-
-attribute 'resolver/nameservers',
-  display_name: 'Resolver Nameservers',
-  description: 'Default nameservers',
-  type: 'array',
-  default: []
-
-attribute 'resolver/options',
-  display_name: 'Resolver Options',
-  description: 'Default resolver options',
-  type: 'hash',
-  default: {}
-
-attribute 'resolver/server_role',
-  display_name: 'Resolver Server Role',
-  description: 'Name of the role applied to the DNS resolver node',
-  type: 'string',
-  default: 'nameserver'
