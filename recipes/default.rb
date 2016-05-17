@@ -29,13 +29,13 @@ if node['resolver']['nameservers'].empty? || node['resolver']['nameservers'][0].
   Chef::Log.info("#{cookbook_name}::#{recipe_name} exiting to prevent a potential breaking change in /etc/resolv.conf.")
   return
 else
-  template '/etc/resolv.conf' do
+  t = template '/etc/resolv.conf' do
     source 'resolv.conf.erb'
     owner 'root'
     group node['root_group']
     mode '0644'
     # This syntax makes the resolver sub-keys available directly
     variables node['resolver']
-    atomic_update false if docker_guest?
   end
+  t.atomic_update false if docker_guest?
 end
