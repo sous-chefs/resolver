@@ -20,8 +20,8 @@
 # * node[:resolver][:nameservers]
 
 def docker_guest?
-  node["virtualization"] && node["virtualization"]["systems"] &&
-    node["virtualization"]["systems"]["docker"] && node["virtualization"]["systems"]["docker"] == "guest"
+  node['virtualization'] && node['virtualization']['systems'] &&
+    node['virtualization']['systems']['docker'] && node['virtualization']['systems']['docker'] == 'guest'
 end
 
 if node['resolver']['nameservers'].empty? || node['resolver']['nameservers'][0].empty?
