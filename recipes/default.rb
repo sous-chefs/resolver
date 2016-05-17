@@ -19,6 +19,11 @@
 # = Requires
 # * node[:resolver][:nameservers]
 
+def docker_guest?
+  node["virtualization"] && node["virtualization"]["systems"] &&
+    node["virtualization"]["systems"]["docker"] && node["virtualization"]["systems"]["docker"] == "guest"
+end
+
 if node['resolver']['nameservers'].empty? || node['resolver']['nameservers'][0].empty?
   Chef::Log.warn("#{cookbook_name}::#{recipe_name} requires that attribute ['resolver']['nameservers'] is set.")
   Chef::Log.info("#{cookbook_name}::#{recipe_name} exiting to prevent a potential breaking change in /etc/resolv.conf.")
@@ -31,5 +36,6 @@ else
     mode '0644'
     # This syntax makes the resolver sub-keys available directly
     variables node['resolver']
+    atomic_update false if docker_guest?
   end
 end
