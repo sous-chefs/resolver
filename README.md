@@ -1,15 +1,13 @@
-resolver Cookbook
-=================
+# resolver Cookbook
 
-[![Build Status](https://travis-ci.org/chef-cookbooks/resolver.svg?branch=master)](http://travis-ci.org/chef-cookbooks/resolver)
-[![Cookbook Version](https://img.shields.io/cookbook/v/resolver.svg)](https://supermarket.chef.io/cookbooks/resolver)
+[![Build Status](https://travis-ci.org/chef-cookbooks/resolver.svg?branch=master)](http://travis-ci.org/chef-cookbooks/resolver) [![Cookbook Version](https://img.shields.io/cookbook/v/resolver.svg)](https://supermarket.chef.io/cookbooks/resolver)
 
 Configures /etc/resolv.conf, unless the nameservers attribute is empty. Search will be excluded if empty.
 
+## Requirements
 
-Requirements
-------------
-#### Platforms
+### Platforms
+
 - Debian/Ubuntu
 - RHEL/CentOS/Scientific/Amazon/Oracle
 - Fedora
@@ -17,36 +15,31 @@ Requirements
 - Mac OS X
 - Solaris
 
-#### Chef
+### Chef
+
 - Chef 11+
 
-#### Cookbooks
+### Cookbooks
+
 - none
 
+## Attributes
 
-Attributes
-----------
 See `attributes/default.rb` for default values.
 
 - `node['resolver']['search']` - Search list for host-name lookup.
-- `node['resolver']['nameservers']` - Required, an array of nameserver IP address strings; the default is an empty array, and the default recipe will not change resolv.conf if this is not set. See __Usage__.
-- `node['resolver']['options']` - a hash of resolv.conf options. See __Usage__ for examples.
+- `node['resolver']['nameservers']` - Required, an array of nameserver IP address strings; the default is an empty array, and the default recipe will not change resolv.conf if this is not set. See **Usage**.
+- `node['resolver']['options']` - a hash of resolv.conf options. See **Usage** for examples.
 - `node['resolver']['domain']` - Local domain name. if `nil`, the domain is determined from the local hostname returned by `gethostname(2)`.
-- `node['resolver']['chef_search']` - the search query used for finding nameservers in the from_server_role recipe. The default value is in the recipe.
 
-Recipes
--------
-Use one of the recipes to set up /etc/resolv.conf for your system(s).
+## Recipes
 
 ### default
+
 Configure /etc/resolv.conf based on attributes.
 
-### from_server_role
-Configure /etc/resolv.conf's nameservers based on a search for a specific role (by Chef environment).
+## Usage
 
-
-Usage
------
 Using the default recipe, set the resolver attributes in a role, for example from my base.rb:
 
 ```ruby
@@ -68,15 +61,12 @@ nameserver 10.13.37.40
 options timeout:2 rotate
 ```
 
-Using the `from_server_role` recipe, assign the `node['resolver']['server_role']` attribute's role to a system that is the DNS resolver in the same Chef environment.
+## License & Authors
 
-
-License & Authors
------------------
-- Author:: Joshua Timberman (<joshua@chef.io>)
+- Author:: Joshua Timberman ([joshua@chef.io](mailto:joshua@chef.io))
 
 ```text
-Copyright 2009-2015, Chef Software, Inc.
+Copyright 2009-2016, Chef Software, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
