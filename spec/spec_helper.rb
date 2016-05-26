@@ -1,8 +1,8 @@
-# Added by ChefSpec
 require 'chefspec'
-
-ChefSpec::Coverage.start!
+require 'chefspec/berkshelf'
 
 RSpec.configure do |config|
-  config.order = 'random'
+  config.color = true
 end
+
+at_exit { ChefSpec::Coverage.report! }
