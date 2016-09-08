@@ -13,5 +13,5 @@ recipe 'resolver::from_server_role', 'Manages nameservers from role with explici
   supports os
 end
 
-source_url 'https://github.com/chef-cookbooks/resolver' if respond_to?(:source_url)
-issues_url 'https://github.com/chef-cookbooks/resolver/issues' if respond_to?(:issues_url)
+source_url 'https://github.com/chef-cookbooks/resolver'
+issues_url 'https://github.com/chef-cookbooks/resolver/issues'
