@@ -24,6 +24,11 @@ def docker_guest?
     node['virtualization']['systems']['docker'] && node['virtualization']['systems']['docker'] == 'guest'
 end
 
+if !node['resolver']['deactivate_resolvconf'] && File.symlink?('/etc/resolv.conf') && File.exist?('/sbin/resolvconf')
+  Chef::Log.warn("#{cookbook_name}::#{recipe_name} is modifying /etc/resolv.conf, which is also being managed by resolvconf.")
+  Chef::Log.warn("Unexpected behavior may occur unless you set the attribute ['resolver']['deactivate_resolvconf'] = true")
+end
+
 if node['resolver']['nameservers'].empty? || node['resolver']['nameservers'][0].empty?
   Chef::Log.warn("#{cookbook_name}::#{recipe_name} requires that attribute ['resolver']['nameservers'] is set.")
   Chef::Log.info("#{cookbook_name}::#{recipe_name} exiting to prevent a potential breaking change in /etc/resolv.conf.")
@@ -36,6 +41,8 @@ else
     mode '0644'
     # This syntax makes the resolver sub-keys available directly
     variables node['resolver']
+    force_unlink node['resolver']['deactivate_resolvconf']
+    manage_symlink_source !node['resolver']['deactivate_resolvconf']
   end
   t.atomic_update false if docker_guest?
 end
