@@ -8,7 +8,7 @@ version '2.0.0'
 
 recipe 'resolver', 'Configures /etc/resolv.conf via attributes'
 
-%w(ubuntu debian fedora centos redhat oracle scientific amazon freebsd openbsd mac_os_x solaris2).each do |os|
+%w(ubuntu debian fedora centos redhat oracle scientific amazon freebsd openbsd mac_os_x solaris2 opensuse opensuseleap suse).each do |os|
   supports os
 end
 

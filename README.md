@@ -14,6 +14,7 @@ Configures /etc/resolv.conf, unless the nameservers attribute is empty. Search w
 - FreeBSD/OpenBSD
 - Mac OS X
 - Solaris
+- openSUSE / SUSE Enterprise
 
 ### Chef
 
