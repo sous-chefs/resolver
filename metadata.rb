@@ -7,13 +7,11 @@ long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '2.0.0'
 
 recipe 'resolver', 'Configures /etc/resolv.conf via attributes'
-recipe 'resolver::from_server_role', 'Manages nameservers from role with explicitly set servers'
 
-%w(ubuntu debian fedora centos redhat oracle scientific amazon freebsd openbsd mac_os_x solaris2).each do |os|
+%w(ubuntu debian fedora centos redhat oracle scientific amazon freebsd openbsd mac_os_x solaris2 opensuse opensuseleap suse).each do |os|
   supports os
 end
 
 source_url 'https://github.com/chef-cookbooks/resolver'
 issues_url 'https://github.com/chef-cookbooks/resolver/issues'
-
-chef_version '>= 12.1'
+chef_version '>= 12.1' if respond_to?(:chef_version)
