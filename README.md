@@ -17,7 +17,7 @@ Configures /etc/resolv.conf, unless the nameservers attribute is empty. Search w
 
 ### Chef
 
-- Chef 11+
+- Chef 12.1+
 
 ### Cookbooks
 
