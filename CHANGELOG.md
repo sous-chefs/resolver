@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
+## 2.0.1 (2017-02-24)
+
+- Fix compatibility with old chef 12 clients
+- Remove old recipe from the metadata
+- Call out SUSE support in the readme and metadata
+
 ## 2.0.0 (2016-09-07)
 
 - add support for 'domain' resolv.conf key
