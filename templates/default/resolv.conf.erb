@@ -6,7 +6,11 @@
 domain <%= @domain %>
 <% end -%>
 <% unless @search.empty? -%>
+<%   if @search.is_a?(Array) -%>
 search <%= @search.join(" ") %>
+<%   else -%>
+search <%= @search %>
+<%   end -%>
 <% end -%>
 <% @nameservers.each do |nameserver| -%>
 nameserver <%= nameserver %>

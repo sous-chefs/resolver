@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-default['resolver']['search'] = [ "#{node['domain']}" ]
+default['resolver']['search'] = [node['domain'].to_s]
 default['resolver']['domain'] = nil
 default['resolver']['nameservers'] = []
 default['resolver']['options'] = {}

@@ -28,7 +28,7 @@ Configures /etc/resolv.conf, unless the nameservers attribute is empty. Search w
 
 See `attributes/default.rb` for default values.
 
-- `node['resolver']['search']` - Search list for host-name lookup. Limited to 6 elements and 256 characters.
+- `node['resolver']['search']` - a hash of search domains for host-name lookup; a string may also be provided for backwards compatibility. Limited to 6 elements and 256 characters.
 - `node['resolver']['nameservers']` - Required, an array of nameserver IP address strings; the default is an empty array, and the default recipe will not change resolv.conf if this is not set. See **Usage**.
 - `node['resolver']['options']` - a hash of resolv.conf options. See **Usage** for examples.
 - `node['resolver']['domain']` - Local domain name. if `nil`, the domain is determined from the local hostname returned by `gethostname(2)`.
