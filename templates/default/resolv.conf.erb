@@ -7,7 +7,7 @@ domain <%= @domain %>
 <% end -%>
 <% unless @search.empty? -%>
 <%   if @search.is_a?(Array) -%>
-search <%= @search.join(" ") %>
+search <%= [@search].flatten[0..5].join(' ') %>
 <%   else -%>
 search <%= @search %>
 <%   end -%>
