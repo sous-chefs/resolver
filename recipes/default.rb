@@ -36,6 +36,7 @@ else
     mode '0644'
     # This syntax makes the resolver sub-keys available directly
     variables node['resolver']
+    manage_symlink_source true
   end
   t.atomic_update false if docker_guest?
 end
