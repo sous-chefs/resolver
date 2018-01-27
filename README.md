@@ -32,6 +32,7 @@ See `attributes/default.rb` for default values.
 - `node['resolver']['nameservers']` - Required, an array of nameserver IP address strings; the default is an empty array, and the default recipe will not change resolv.conf if this is not set. See **Usage**.
 - `node['resolver']['options']` - a hash of resolv.conf options. See **Usage** for examples.
 - `node['resolver']['domain']` - Local domain name. if `nil`, the domain is determined from the local hostname returned by `gethostname(2)`.
+- `node['resolver']['deactivate_resolveconf'] - Disable resolveconf management of `/etc/resolv.conf` by unlinking it. Useful on Ubuntu system so change managedment is rebootable. Default `false`.
 
 ## Recipes
 
