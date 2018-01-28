@@ -22,3 +22,10 @@ suites:
   - name: default
     run_list:
       - recipe[resolver::default]
+    attributes: { "resolver": { "nameservers": ["8.8.8.8"]}}
+  - name: force_unlink
+    run_list:
+      - recipe[resolver::default]
+    attributes: { "resolver": {
+            "deactivate_resolvconf": true,
+            "nameservers": ["8.8.8.8"]}}

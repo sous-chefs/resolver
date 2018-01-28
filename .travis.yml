@@ -26,6 +26,7 @@ env:
   - INSTANCE=default-fedora-latest
   - INSTANCE=default-opensuse-leap
   - INSTANCE=default-ubuntu-1404
+  - INSTANCE=force-unlink-ubuntu-1404
   - INSTANCE=default-ubuntu-1604
 
 before_script:
