@@ -4,7 +4,7 @@ maintainer_email  'cookbooks@chef.io'
 license           'Apache-2.0'
 description       'Configures /etc/resolv.conf via attributes'
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '2.0.2'
+version '2.1.0'
 
 recipe 'resolver', 'Configures /etc/resolv.conf via attributes'
 

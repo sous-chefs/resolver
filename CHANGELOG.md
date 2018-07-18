@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
+## 2.1.0 (2018-07-18)
+
+- Test with Local Delivery instead of Rake
+- Update Apache license string in metadata
+- the search stanza should be an array rather than a single element.  resolv.conf search allows up to six search domains to be defined.  Have updated the recipes with some rules (no more than 6 domains or 256 chars), change the ['resolver']['search'] into an array and changed teh template unless block to search for an empty array instead
+- add aix support
+
 ## 2.0.1 (2017-02-24)
 
 - Fix compatibility with old chef 12 clients
