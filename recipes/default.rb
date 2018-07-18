@@ -28,14 +28,19 @@ if node['resolver']['nameservers'].empty? || node['resolver']['nameservers'][0].
   Chef::Log.warn("#{cookbook_name}::#{recipe_name} requires that attribute ['resolver']['nameservers'] is set.")
   Chef::Log.info("#{cookbook_name}::#{recipe_name} exiting to prevent a potential breaking change in /etc/resolv.conf.")
   return
-else
-  t = template '/etc/resolv.conf' do
-    source 'resolv.conf.erb'
-    owner 'root'
-    group node['root_group']
-    mode '0644'
-    # This syntax makes the resolver sub-keys available directly
-    variables node['resolver']
-  end
-  t.atomic_update false if docker_guest?
 end
+
+if node['resolver']['search'].is_a?(Array) && (node['resolver']['search'].count > 6 || node['resolver']['search'].join.size > 256)
+  Chef::Log.warn("#{cookbook_name}::#{recipe_name} attribute ['resolver']['search'] can contain no more than 6 search domains and a total of 256 characters")
+  Chef::Log.warn("#{cookbook_name}::#{recipe_name} truncating resolv.conf search domain list to the first 6 entries.")
+end
+
+t = template '/etc/resolv.conf' do
+  source 'resolv.conf.erb'
+  owner 'root'
+  group node['root_group']
+  mode '0644'
+  # This syntax makes the resolver sub-keys available directly
+  variables node['resolver']
+end
+t.atomic_update false if docker_guest?

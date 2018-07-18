@@ -5,8 +5,12 @@
 <% unless @domain.nil? -%>
 domain <%= @domain %>
 <% end -%>
-<% unless @search.nil? -%>
+<% unless @search.empty? -%>
+<%   if @search.is_a?(Array) -%>
+search <%= [@search].flatten[0..5].join(' ') %>
+<%   else -%>
 search <%= @search %>
+<%   end -%>
 <% end -%>
 <% @nameservers.each do |nameserver| -%>
 nameserver <%= nameserver %>
