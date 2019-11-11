@@ -13,7 +13,7 @@ Configures /etc/resolv.conf, unless the nameservers attribute is empty. Search w
 - RHEL/CentOS/Scientific/Amazon/Oracle
 - Fedora
 - FreeBSD/OpenBSD
-- Mac OS X
+- macOS
 - Solaris
 - openSUSE / SUSE Enterprise
 
