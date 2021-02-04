@@ -8,7 +8,7 @@ Configures /etc/resolv.conf, unless the nameservers attribute is empty. Search w
 
 ### Platforms
 
-- AIX 
+- AIX
 - Debian/Ubuntu
 - RHEL/CentOS/Scientific/Amazon/Oracle
 - Fedora
