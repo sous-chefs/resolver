@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
+## Unreleased
+
+- Sous Chefs Adoption
+
 ## 2.1.0 (2018-07-18)
 
 - Test with Local Delivery instead of Rake
@@ -48,8 +52,6 @@ This file is used to list changes made in each version of the resolver cookbook.
 - [#14] Exclude search in template if attribute is empty
 
 ## v1.1.4
-
-### Improvement
 
 - **[COOK-3375](https://tickets.chef.io/browse/COOK-3375)** - Add Solaris support
 
