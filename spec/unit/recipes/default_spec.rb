@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe 'default recipe on ubuntu 16.04' do
-  let(:runner) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04') }
+describe 'default recipe on ubuntu 20.04' do
+  let(:runner) { ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '20.04') }
   let(:chef_run) { runner.converge('resolver::default') }
 
   it 'converges successfully' do

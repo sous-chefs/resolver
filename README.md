@@ -49,11 +49,11 @@ Configure /etc/resolv.conf based on attributes.
 Using the default recipe, set the resolver attributes in a role, for example from my base.rb:
 
 ```ruby
-"resolver" => {
-  "nameservers" => ["10.13.37.120", "10.13.37.40"],
-  "search" => [ "int.example.org", "ext.example.org" ],
-  "options" => {
-    "timeout" => 2, "rotate" => nil
+'resolver' => {
+  'nameservers' => ['10.13.37.120', '10.13.37.40'],
+  'search' => [ 'int.example.org', 'ext.example.org' ],
+  'options' => {
+    'timeout' => 2, 'rotate' => nil
   }
 }
 ```

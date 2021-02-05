@@ -22,4 +22,5 @@ platforms:
 suites:
   - name: default
     run_list:
+      - recipe[resolver-test::default]
       - recipe[resolver::default]
