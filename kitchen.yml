@@ -15,7 +15,7 @@ platforms:
   - name: centos-8
   - name: debian-9
   - name: debian-10
-  - name: fedora-29
+  - name: fedora-latest
   - name: ubuntu-18.04
   - name: ubuntu-20.04
 

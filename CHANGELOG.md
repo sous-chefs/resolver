@@ -5,9 +5,8 @@ This file is used to list changes made in each version of the resolver cookbook.
 ## Unreleased
 
 - Sous Chefs Adoption
-- Add inspec Tests
-- Remove Deprecated Platforms
-- Change ci to point to Sous Chefs
+- Add InSpec Tests
+- Remove Deprecated Platforms, Centos 6, Ubuntu 16.04, opensuse-42, fedora-29
 
 ## 2.1.0 (2018-07-18)
 
