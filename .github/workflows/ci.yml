@@ -72,8 +72,60 @@ jobs:
             set -x
             sudo journalctl -l --since today
             KITCHEN_LOCAL_YAML=kitchen.dokken.yml /usr/bin/kitchen exec ${{ matrix.suite }}-${{ matrix.os }} -c "journalctl -l"
+
+  macos-latest:
+    needs: [mdl, yamllint, delivery]
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        os:
+          - 'macos-latest'
+        suite:
+          - 'default'
+      fail-fast: false
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@master
+      - name: Install Chef
+        uses: actionshub/chef-install@master
+      - name: test-kitchen
+        uses: actionshub/test-kitchen@master
+        env:
+          CHEF_LICENSE: accept-no-persist
+          KITCHEN_LOCAL_YAML: kitchen.exec.yml
+        with:
+          suite: ${{ matrix.suite }}
+          os: ${{ matrix.os }}
+
+  vagrant:
+    needs: [mdl, yamllint, delivery]
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        os:
+          - 'freebsd-11'
+          - 'freebsd-12'
+        suite:
+          - 'default'
+      fail-fast: false
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@master
+      - name: Install Chef
+        uses: actionshub/chef-install@master
+      - name: test-kitchen
+        uses: actionshub/test-kitchen@master
+        env:
+          KITCHEN_LOCAL_YAML: kitchen.vagrant.yml
+          CHEF_LICENSE: accept-no-persist
+        with:
+          suite: ${{ matrix.suite }}
+          os: ${{ matrix.os }}
+
   final:
-    needs: [dokken]
+    needs: [dokken, macos-latest, vagrant]
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
