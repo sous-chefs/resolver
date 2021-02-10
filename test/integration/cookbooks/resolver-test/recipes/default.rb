@@ -5,4 +5,5 @@ resolver_config '/etc/resolv.conf' do
   options(
     'timeout' => 2
   )
+  override_system_configuration true
 end

@@ -68,7 +68,28 @@ property :sortlist, [String, Array],
 property :options, Hash,
           description: 'Additional options to add to the resolver configuration file'
 
+property :override_system_configuration, [true, false],
+          default: false,
+          description: 'Override the system DNS configuration, for use with NetworkManager/resolvconf/systemd-resolved'
+
 action :set do
+  if new_resource.override_system_configuration
+    directory '/etc/NetworkManager/conf.d' do
+      recursive true
+    end
+
+    template '/etc/NetworkManager/conf.d/90-dns-none.conf' do
+      cookbook new_resource.cookbook
+      source '90-dns-none.conf.erb'
+
+      owner 'root'
+      group 'root'
+      mode '0644'
+
+      action :create
+    end
+  end
+
   template new_resource.config_file do
     cookbook new_resource.cookbook
     source new_resource.template
@@ -76,6 +97,9 @@ action :set do
     owner new_resource.owner
     group new_resource.group
     mode new_resource.mode
+
+    force_unlink new_resource.override_system_configuration
+    manage_symlink_source !new_resource.override_system_configuration
 
     variables(
       nameservers: new_resource.nameservers,
