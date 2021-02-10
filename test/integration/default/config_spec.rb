@@ -1,4 +1,6 @@
 describe file('/etc/resolv.conf') do
+  it { should_not be_symlink }
+  it { should be_file }
   its('content') { should match /nameserver 1.1.1.1/ }
   its('content') { should match /nameserver 1.0.0.1/ }
   its('content') { should match /domain test\.com/ }

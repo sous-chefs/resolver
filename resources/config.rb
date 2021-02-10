@@ -69,7 +69,7 @@ property :options, Hash,
           description: 'Additional options to add to the resolver configuration file'
 
 property :override_system_configuration, [true, false],
-          default: false,
+          default: lazy { resolver_override_default(config_file) },
           description: 'Override the system DNS configuration, for use with NetworkManager/resolvconf/systemd-resolved'
 
 action :set do

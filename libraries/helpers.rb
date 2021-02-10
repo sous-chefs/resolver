@@ -1,3 +1,5 @@
+require 'pathname'
+
 module Resolver
   module Cookbook
     module Helpers
@@ -7,6 +9,12 @@ module Resolver
 
       def resolver_conf_group_default
         node['root_group']
+      end
+
+      def resolver_override_default(file)
+        return false if Pathname.new(file).mountpoint?
+
+        true
       end
     end
   end
