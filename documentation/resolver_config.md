@@ -1,4 +1,4 @@
-# dhcp_class
+# resolver_config
 
 [Back to resource list](../README.md#resources)
 
