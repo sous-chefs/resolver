@@ -118,7 +118,7 @@ jobs:
       - name: test-kitchen
         uses: actionshub/test-kitchen@master
         env:
-          KITCHEN_LOCAL_YAML: kitchen.vagrant.yml
+          KITCHEN_LOCAL_YAML: kitchen.yml
           CHEF_LICENSE: accept-no-persist
         with:
           suite: ${{ matrix.suite }}
