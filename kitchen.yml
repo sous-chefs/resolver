@@ -25,3 +25,11 @@ suites:
   - name: default
     run_list:
       - recipe[resolver-test::default]
+  - name: systemd_resolved
+    run_list:
+      - recipe[resolver-test::systemd_resolved]
+    includes:
+      - fedora-latest
+    verifier:
+      inspec_tests:
+        - test/integration/systemd_resolved

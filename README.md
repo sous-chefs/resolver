@@ -32,6 +32,7 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 ## Resources
 
 - [resolver_config](documentation/resolver_config.md)
+- [resolver_systemd_resolved_config](documentation/resolver_systemd_resolved_config.md)
 
 ## Usage
 

@@ -51,6 +51,9 @@ jobs:
           - 'opensuse-leap-15'
         suite:
           - 'default'
+        include:
+          - suite: 'systemd-resolved'
+            os: 'fedora-latest'
       fail-fast: false
 
     steps:
