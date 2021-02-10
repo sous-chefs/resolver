@@ -10,20 +10,19 @@ verifier:
   name: inspec
 
 platforms:
-  - name: amazonlinux
-    driver_config:
-      box: mvbcoding/awslinux
   - name: amazonlinux-2
-  - name: centos-6
   - name: centos-7
-  - name: debian-9
+  - name: centos-8
   - name: debian-10
-  - name: fedora-29
-  - name: opensuse-leap-42
-  - name: ubuntu-16.04
+  - name: debian-9
+  - name: fedora-latest
+  - name: freebsd-11
+  - name: freebsd-12
   - name: ubuntu-18.04
+  - name: ubuntu-20.04
 
 suites:
   - name: default
     run_list:
+      - recipe[resolver-test::default]
       - recipe[resolver::default]
