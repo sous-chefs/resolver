@@ -10,7 +10,6 @@ describe command('curl https://www.google.com') do
   its('exit_status') { should eq 0 }
 end
 
-describe file('/etc/NetworkManager/conf.d/90-dns-none.conf') do
-  its('content') { should match /[main]/ }
-  its('content') { should match /dns=none/ }
-end
+describe ini('/etc/NetworkManager/conf.d/90-dns-none.conf') do
+  its('main.dns') { should eq 'none' }
+end if os.redhat? || os.name.eql?('fedora')

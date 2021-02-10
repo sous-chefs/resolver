@@ -82,12 +82,12 @@ action :set do
       cookbook new_resource.cookbook
       source '90-dns-none.conf.erb'
 
-      owner 'root'
-      group 'root'
-      mode '0644'
+      owner new_resource.owner
+      group new_resource.group
+      mode new_resource.mode
 
       action :create
-    end
+    end if ::Dir.exist?('/etc/NetworkManager')
   end
 
   template new_resource.config_file do
