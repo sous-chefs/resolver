@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
+## Unreleased
+
 ## 2.2.0 - *2021-02-10*
 
 - Sous Chefs Adoption
