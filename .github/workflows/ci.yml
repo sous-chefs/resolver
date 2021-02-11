@@ -54,6 +54,10 @@ jobs:
         include:
           - suite: 'systemd-resolved'
             os: 'fedora-latest'
+          - suite: 'systemd-resolved'
+            os: 'ubuntu-1804'
+          - suite: 'systemd-resolved'
+            os: 'ubuntu-2004'
       fail-fast: false
 
     steps:

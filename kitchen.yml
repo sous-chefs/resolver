@@ -30,6 +30,8 @@ suites:
       - recipe[resolver-test::systemd_resolved]
     includes:
       - fedora-latest
+      - ubuntu-18.04
+      - ubuntu-20.04
     verifier:
       inspec_tests:
         - test/integration/systemd_resolved
