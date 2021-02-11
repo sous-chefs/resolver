@@ -3,3 +3,7 @@ resolver_systemd_resolved_config '/etc/systemd/resolved.conf' do
   fallback_dns '8.8.8.8,8.8.4.4,2001:4860:4860::8888,2001:4860:4860::8844'
   domains 'localtest.com'
 end
+
+service 'systemd-resolved' do
+  action [:enable, :start]
+end

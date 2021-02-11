@@ -10,6 +10,10 @@ describe command('curl https://www.google.com') do
   its('exit_status') { should eq 0 }
 end
 
+describe command('dig www.google.com') do
+  its('stdout') { should match /SERVER: 127.0.0.\d{1,3}/ }
+end
+
 describe service('systemd-resolved') do
   it { should be_installed }
   it { should be_enabled }
