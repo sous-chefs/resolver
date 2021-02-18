@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
-## Unreleased
+## 3.0.0 - *2021-02-18*
 
 - Port recipes and attributes to resources
 - Add support for overriding system configuration methods to resolver_config
