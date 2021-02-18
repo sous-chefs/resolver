@@ -4,6 +4,10 @@ This file is used to list changes made in each version of the resolver cookbook.
 
 ## Unreleased
 
+- Port recipes and attributes to resources
+- Add support for overriding system configuration methods to resolver_config
+- Add systemd-resolved support
+
 ## 2.2.0 - *2021-02-10*
 
 - Sous Chefs Adoption
