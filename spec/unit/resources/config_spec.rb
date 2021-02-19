@@ -11,7 +11,9 @@ describe 'resolver_config' do
         domain 'test.com'
         search ['test1.com', 'test2.com']
         options(
-          'timeout' => 2
+          'timeout' => 2,
+          'rotate' => nil,
+          'attempts' => 1
         )
       end
     end
@@ -22,7 +24,7 @@ describe 'resolver_config' do
         .with_content(/nameserver 1.0.0.1/)
         .with_content(/domain test\.com/)
         .with_content(/search test1\.com test2\.com/)
-        .with_content(/options timeout:2/)
+        .with_content(/options timeout:2 rotate attempts:1/)
     end
   end
 end

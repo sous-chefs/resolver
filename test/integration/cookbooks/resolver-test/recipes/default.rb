@@ -3,7 +3,9 @@ resolver_config '/etc/resolv.conf' do
   domain 'test.com'
   search ['test1.com', 'test2.com']
   options(
-    'timeout' => 2
+    'timeout' => 2,
+    'rotate' => nil,
+    'attempts' => 1
   )
   override_system_configuration true
 end

@@ -5,7 +5,7 @@ describe file('/etc/resolv.conf') do
   its('content') { should match /nameserver 1.0.0.1/ }
   its('content') { should match /domain test\.com/ }
   its('content') { should match /search test1\.com test2\.com/ }
-  its('content') { should match /options timeout:2/ }
+  its('content') { should match /options timeout:2 rotate attempts:1/ }
 end
 
 describe command('curl https://www.google.com') do
