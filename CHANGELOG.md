@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
-## Unreleased
+## 3.0.1 - *2021-02-20*
 
 - Update `Chef` -> `Chef Infra`
 
