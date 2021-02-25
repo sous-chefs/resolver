@@ -13,7 +13,5 @@ search <%= @search.join(' ') %>
 nameserver <%= nameserver %>
 <% end %>
 <% unless nil_or_empty?(@options) -%>
-<% @options.each do |option, value| -%>
-options <%= option %><% unless nil_or_empty?(@search) %>:<%= value %><% end %>
-<% end -%>
+options<% @options.each do |option, value| -%> <%= option %><% unless nil_or_empty?(value) %>:<%= value %><% end %><% end -%>
 <% end -%>
