@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
-## Unreleased
+## 3.0.2 - *2021-02-25*
 
 - Merge resolv.conf options & remove extra colons
 
