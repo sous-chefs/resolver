@@ -36,7 +36,7 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ## Usage
 
-It is recommended to create a project or organization specific [wrapper cookbook](https://www.chef.io/blog/2013/12/03/doing-wrapper-cookbooks-right/) and add the desired custom resources to the run list of a node.
+It is recommended to create a project or organization specific [wrapper cookbook](https://blog.chef.io/doing-wrapper-cookbooks-right) and add the desired custom resources to the run list of a node.
 
 Example of configuring a node with nameservers, a search list and a local domain.
 
