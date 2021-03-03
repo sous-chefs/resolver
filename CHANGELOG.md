@@ -4,6 +4,8 @@ This file is used to list changes made in each version of the resolver cookbook.
 
 ## Unreleased
 
+- Fixed typo in the `CacheFromLocalhost` parameter in the systemd-resolved template
+
 ## 3.0.3 - *2021-02-25*
 
 - Fix blog link for wrapper cookbooks
