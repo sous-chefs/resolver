@@ -29,7 +29,7 @@ DNSOverTLS=<%= systemd_value(@dnsovertls) %>
 Cache=<%= systemd_value(@cache) %>
 <% end -%>
 <% unless nil_or_empty?(@cachefromlocalhost) -%>
-CacheFromLocahost=<%= systemd_value(@cachefromlocalhost)%>
+CacheFromLocalhost=<%= systemd_value(@cachefromlocalhost)%>
 <% end -%>
 <% unless nil_or_empty?(@dnsstublistener) -%>
 DNSStubListener=<%= systemd_value(@dnsstublistener) %>
