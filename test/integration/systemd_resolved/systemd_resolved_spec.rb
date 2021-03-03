@@ -3,7 +3,7 @@ describe file('/etc/systemd/resolved.conf') do
   its('content') { should match /FallBackDNS=8.8.8.8 8.8.4.4 2001:4860:4860::8888 2001:4860:4860::8844/ }
   its('content') { should match /DNSSEC=allow-downgrade/ }
   its('content') { should match /Domains=localtest.com/ }
-  its('content') { should match /CacheFromLocahost=no/ }
+  its('content') { should match /CacheFromLocalhost=no/ }
 end
 
 describe command('curl https://www.google.com') do
