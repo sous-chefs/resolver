@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+unified_mode true
+
 include Resolver::Cookbook::Helpers
 
 property :config_file, String,

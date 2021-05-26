@@ -6,7 +6,7 @@ description       'Configures /etc/resolv.conf via attributes'
 version           '3.0.4'
 source_url        'https://github.com/sous-chefs/resolver'
 issues_url        'https://github.com/sous-chefs/resolver/issues'
-chef_version      '>= 14.0'
+chef_version      '>= 15.3'
 
 supports 'amazon'
 supports 'centos'
