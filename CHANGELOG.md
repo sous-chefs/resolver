@@ -4,6 +4,9 @@ This file is used to list changes made in each version of the resolver cookbook.
 
 ## Unreleased
 
+- Switch to `unified_mode`
+- Update `chef_version` to only support Chef 15.3 or later
+
 ## 3.0.4 - *2021-03-03*
 
 - Fixed typo in the `CacheFromLocalhost` parameter in the systemd-resolved template
