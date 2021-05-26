@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
-## Unreleased
+## 4.0.0 - *2021-05-26*
 
 - Switch to `unified_mode`
 - Update `chef_version` to only support Chef 15.3 or later
