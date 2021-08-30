@@ -4,7 +4,11 @@ This file is used to list changes made in each version of the resolver cookbook.
 
 ## Unreleased
 
+- Standardise files with files in sous-chefs/repo-management
+
 ## 4.0.1 - *2021-06-01*
+
+- Standardise files with files in sous-chefs/repo-management
 
 ## 4.0.0 - *2021-05-26*
 
