@@ -5,6 +5,7 @@ This file is used to list changes made in each version of the resolver cookbook.
 ## Unreleased
 
 - Remove delivery and move to calling RSpec directly via a reusable workflow
+- Add the 'atomic_update' property
 
 ## 4.0.3 - *2022-02-08*
 
