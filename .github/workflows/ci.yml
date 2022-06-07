@@ -8,34 +8,11 @@ name: ci
       - main
 
 jobs:
-  delivery:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Run Chef Delivery
-        uses: actionshub/chef-delivery@main
-        env:
-          CHEF_LICENSE: accept-no-persist
-
-  yamllint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Run yaml Lint
-        uses: actionshub/yamllint@main
-
-  mdl:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Run Markdown Lint
-        uses: actionshub/markdownlint@main
+  lint-unit:
+    uses: sous-chefs/.github/.github/workflows/lint-unit.yml@0.0.3
 
   integration:
-    needs: [mdl, yamllint, delivery]
+    needs: [lint-unit]
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -81,7 +58,7 @@ jobs:
             KITCHEN_LOCAL_YAML=kitchen.dokken.yml /usr/bin/kitchen exec ${{ matrix.suite }}-${{ matrix.os }} -c "journalctl -l"
 
   integration-macos:
-    needs: [mdl, yamllint, delivery]
+    needs: [lint-unit]
     runs-on: macos-latest
     strategy:
       matrix:
@@ -106,7 +83,7 @@ jobs:
           os: ${{ matrix.os }}
 
   integration-freebsd:
-    needs: [mdl, yamllint, delivery]
+    needs: [lint-unit]
     runs-on: macos-latest
     strategy:
       matrix:

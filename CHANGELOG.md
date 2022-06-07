@@ -4,6 +4,8 @@ This file is used to list changes made in each version of the resolver cookbook.
 
 ## Unreleased
 
+- Remove delivery and move to calling RSpec directly via a reusable workflow
+
 ## 4.0.3 - *2022-02-08*
 
 - Remove delivery folder
