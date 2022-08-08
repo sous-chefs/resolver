@@ -70,6 +70,10 @@ property :sortlist, [String, Array],
 property :options, Hash,
           description: 'Additional options to add to the resolver configuration file'
 
+property :atomic_update, [true, false],
+          default: true,
+          description: 'Perform atomic file updates on a per-resource basis'
+
 property :override_system_configuration, [true, false],
           default: lazy { resolver_override_default(config_file) },
           description: 'Override the system DNS configuration, for use with NetworkManager/resolvconf/systemd-resolved'
@@ -102,6 +106,8 @@ action :set do
 
     force_unlink new_resource.override_system_configuration
     manage_symlink_source !new_resource.override_system_configuration
+
+    atomic_update new_resource.atomic_update
 
     variables(
       nameservers: new_resource.nameservers,

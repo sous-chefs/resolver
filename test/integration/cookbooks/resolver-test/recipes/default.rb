@@ -8,4 +8,5 @@ resolver_config '/etc/resolv.conf' do
     'attempts' => 1
   )
   override_system_configuration true
+  atomic_update false
 end

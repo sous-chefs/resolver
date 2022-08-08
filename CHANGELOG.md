@@ -4,6 +4,11 @@ This file is used to list changes made in each version of the resolver cookbook.
 
 ## Unreleased
 
+- Remove delivery and move to calling RSpec directly via a reusable workflow
+- Add the `atomic_update` property
+- Use MacOS 10.15 when using Vagrant testing
+- Update Linux platforms for testing
+
 ## 4.0.3 - *2022-02-08*
 
 - Remove delivery folder
