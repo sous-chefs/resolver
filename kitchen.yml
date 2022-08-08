@@ -16,8 +16,8 @@ platforms:
   - name: debian-10
   - name: debian-9
   - name: fedora-latest
-  - name: freebsd-11
-  - name: freebsd-12.2  # freebsd-12 bento box is out of sync with the ports tree
+  - name: freebsd-12
+  - name: freebsd-13
   - name: ubuntu-18.04
   - name: ubuntu-20.04
 
@@ -34,6 +34,7 @@ suites:
       - fedora-latest
       - ubuntu-18.04
       - ubuntu-20.04
+      - ubuntu-22.04
     verifier:
       inspec_tests:
         - test/integration/systemd_resolved

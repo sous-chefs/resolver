@@ -12,20 +12,23 @@ jobs:
     uses: sous-chefs/.github/.github/workflows/lint-unit.yml@0.0.3
 
   integration:
-    needs: [lint-unit]
+    needs: lint-unit
     runs-on: ubuntu-latest
     strategy:
       matrix:
         os:
+          - 'almalinux-8'
           - 'amazonlinux-2'
-          - 'debian-9'
-          - 'debian-10'
           - 'centos-7'
-          - 'centos-8'
+          - 'centos-stream-8'
+          - 'debian-10'
+          - 'debian-11'
           - 'fedora-latest'
+          - 'opensuse-leap-15'
+          - 'rockylinux-8'
           - 'ubuntu-1804'
           - 'ubuntu-2004'
-          - 'opensuse-leap-15'
+          - 'ubuntu-2204'
         suite:
           - 'default'
         include:
@@ -35,6 +38,8 @@ jobs:
             os: 'ubuntu-1804'
           - suite: 'systemd-resolved'
             os: 'ubuntu-2004'
+          - suite: 'systemd-resolved'
+            os: 'ubuntu-2204'
       fail-fast: false
 
     steps:
@@ -58,7 +63,7 @@ jobs:
             KITCHEN_LOCAL_YAML=kitchen.dokken.yml /usr/bin/kitchen exec ${{ matrix.suite }}-${{ matrix.os }} -c "journalctl -l"
 
   integration-macos:
-    needs: [lint-unit]
+    needs: lint-unit
     runs-on: macos-latest
     strategy:
       matrix:
@@ -83,13 +88,13 @@ jobs:
           os: ${{ matrix.os }}
 
   integration-freebsd:
-    needs: [lint-unit]
-    runs-on: macos-latest
+    needs: lint-unit
+    runs-on: macos-10.15
     strategy:
       matrix:
         os:
-          - 'freebsd-11'
           - 'freebsd-12'
+          - 'freebsd-13'
         suite:
           - 'default'
       fail-fast: false
