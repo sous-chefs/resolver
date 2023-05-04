@@ -4,6 +4,8 @@ This file is used to list changes made in each version of the resolver cookbook.
 
 ## Unreleased
 
+- chore(deps): update actions/checkout action to v3
+
 ## 4.1.1 - *2023-05-03*
 
 - Update standardfiles
@@ -107,7 +109,7 @@ This file is used to list changes made in each version of the resolver cookbook.
 
 ## v1.1.4
 
-- **[COOK-3375](https://tickets.chef.io/browse/COOK-3375)** - Add Solaris support
+- [COOK-3375] - Add Solaris support
 
 ## v1.1.2
 
