@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
+## Unreleased
+
 ## 4.1.2 - *2023-05-04*
 
 - chore(deps): update actions/checkout action to v3
