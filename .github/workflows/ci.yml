@@ -10,6 +10,12 @@ name: ci
 jobs:
   lint-unit:
     uses: sous-chefs/.github/.github/workflows/lint-unit.yml@2.0.2
+    permissions:
+      actions: write
+      checks: write
+      pull-requests: write
+      statuses: write
+      issues: write
 
   integration:
     needs: lint-unit
@@ -18,7 +24,7 @@ jobs:
       matrix:
         os:
           - "almalinux-8"
-          - "amazonlinux-2"
+          - "amazonlinux-2023"
           - "centos-7"
           - "centos-stream-8"
           - "debian-10"
@@ -44,7 +50,7 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Install Chef
         uses: actionshub/chef-install@2.0.4
       - name: Dokken
@@ -55,12 +61,6 @@ jobs:
         with:
           suite: ${{ matrix.suite }}
           os: ${{ matrix.os }}
-      - name: Print debug output on failure
-        if: failure()
-        run: |
-          set -x
-          sudo journalctl -l --since today
-          KITCHEN_LOCAL_YAML=kitchen.dokken.yml /usr/bin/kitchen exec ${{ matrix.suite }}-${{ matrix.os }} -c "journalctl -l"
 
   integration-macos:
     needs: lint-unit
@@ -75,7 +75,7 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Install Chef
         uses: actionshub/chef-install@2.0.4
       - name: test-kitchen
@@ -87,28 +87,29 @@ jobs:
           suite: ${{ matrix.suite }}
           os: ${{ matrix.os }}
 
-  integration-freebsd:
-    needs: lint-unit
-    runs-on: macos-10.15
-    strategy:
-      matrix:
-        os:
-          - "freebsd-12"
-          - "freebsd-13"
-        suite:
-          - "default"
-      fail-fast: false
-
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Install Chef
-        uses: actionshub/chef-install@2.0.4
-      - name: test-kitchen
-        uses: actionshub/test-kitchen@2.1.0
-        env:
-          KITCHEN_LOCAL_YAML: kitchen.yml
-          CHEF_LICENSE: accept-no-persist
-        with:
-          suite: ${{ matrix.suite }}
-          os: ${{ matrix.os }}
+# TODO: This is currently broken unrelated to this cookbook
+#   integration-freebsd:
+#     needs: lint-unit
+#     runs-on: macos-latest
+#     strategy:
+#       matrix:
+#         os:
+#           - "freebsd-12"
+#           - "freebsd-13"
+#         suite:
+#           - "default"
+#       fail-fast: false
+#
+#     steps:
+#       - name: Check out code
+#         uses: actions/checkout@v3
+#       - name: Install Chef
+#         uses: actionshub/chef-install@2.0.4
+#       - name: test-kitchen
+#         uses: actionshub/test-kitchen@2.1.0
+#         env:
+#           KITCHEN_LOCAL_YAML: kitchen.yml
+#           CHEF_LICENSE: accept-no-persist
+#         with:
+#           suite: ${{ matrix.suite }}
+#           os: ${{ matrix.os }}
