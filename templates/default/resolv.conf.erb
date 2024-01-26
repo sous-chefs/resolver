@@ -9,6 +9,9 @@ domain <%= @domain %>
 <% unless nil_or_empty?(@search) -%>
 search <%= @search.join(' ') %>
 <% end -%>
+<% unless nil_or_empty?(@sortlist) -%>
+sortlist <%= @sortlist.join(' ') %>
+<% end -%>
 <% @nameservers.each do |nameserver| -%>
 nameserver <%= nameserver %>
 <% end %>
