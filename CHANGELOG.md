@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
+## Unreleased
+
 ## 4.2.0 - *2024-01-29*
 
 - Added support for sortlist option in resolv.conf
