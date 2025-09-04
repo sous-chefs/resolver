@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
+## Unreleased
+
 ## 4.2.3 - *2025-09-04*
 
 ## 4.2.2 - *2024-05-02*
