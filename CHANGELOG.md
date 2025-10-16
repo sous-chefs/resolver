@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
+## [4.2.4](https://github.com/sous-chefs/resolver/compare/4.2.3...v4.2.4) (2025-10-16)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#86](https://github.com/sous-chefs/resolver/issues/86)) ([dde63a3](https://github.com/sous-chefs/resolver/commit/dde63a36b7b365ebbfd055d278a3fa21c03e9539))
+
 ## 4.2.0 - *2024-01-29*
 
 * Added support for sortlist option in resolv.conf
