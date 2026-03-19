@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Resolver
   module Cookbook
     module TemplateHelpers

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe file('/etc/systemd/resolved.conf') do
   its('content') { should match /DNS=1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001/ }
   its('content') { should match /FallBackDNS=8.8.8.8 8.8.4.4 2001:4860:4860::8888 2001:4860:4860::8844/ }

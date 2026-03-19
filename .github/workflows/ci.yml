@@ -24,28 +24,24 @@ jobs:
       matrix:
         os:
           - "almalinux-8"
+          - "almalinux-9"
           - "amazonlinux-2023"
-          - "centos-7"
-          - "centos-stream-8"
-          - "debian-10"
-          - "debian-11"
+          - "centos-stream-9"
+          - "debian-12"
           - "fedora-latest"
-          - "opensuse-leap-15"
           - "rockylinux-8"
-          - "ubuntu-1804"
-          - "ubuntu-2004"
+          - "rockylinux-9"
           - "ubuntu-2204"
+          - "ubuntu-2404"
         suite:
           - "default"
         include:
           - suite: "systemd-resolved"
             os: "fedora-latest"
           - suite: "systemd-resolved"
-            os: "ubuntu-1804"
-          - suite: "systemd-resolved"
-            os: "ubuntu-2004"
-          - suite: "systemd-resolved"
             os: "ubuntu-2204"
+          - suite: "systemd-resolved"
+            os: "ubuntu-2404"
       fail-fast: false
 
     steps:
