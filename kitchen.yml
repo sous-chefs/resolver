@@ -4,7 +4,7 @@ driver:
 provisioner:
   name: chef_zero
   deprecations_as_errors: true
-  chef_license: accept-no-persist
+  product_name: cinc
 
 verifier:
   name: inspec
