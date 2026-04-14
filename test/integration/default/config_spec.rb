@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe file('/etc/resolv.conf') do
   it { should_not be_symlink }
   it { should be_file }

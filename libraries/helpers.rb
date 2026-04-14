@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'pathname'
 
 module Resolver
   module Cookbook
     module Helpers
-      RESOLVER_RESOLV_CONF_DEFAULT = '/etc/resolv.conf'.freeze
-      RESOLVER_RESOLVED_CONF_DEFAULT = '/etc/systemd/resolved.conf'.freeze
-      RESOLVER_CONF_USER_DEFAULT = 'root'.freeze
+      RESOLVER_RESOLV_CONF_DEFAULT = '/etc/resolv.conf'
+      RESOLVER_RESOLVED_CONF_DEFAULT = '/etc/systemd/resolved.conf'
+      RESOLVER_CONF_USER_DEFAULT = 'root'
 
       def resolver_conf_group_default
         node['root_group']

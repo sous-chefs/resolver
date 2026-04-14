@@ -1,3 +1,7 @@
+apt_update
+
+# frozen_string_literal: true
+
 dig_pkg = case node['platform_family']
           when 'rhel', 'fedora', 'amazon', 'suse'
             'bind-utils'
