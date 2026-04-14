@@ -2,6 +2,19 @@
 
 This file is used to list changes made in each version of the resolver cookbook.
 
+## [4.3.0](https://github.com/sous-chefs/resolver/compare/v4.2.4...v4.3.0) (2026-04-14)
+
+
+### Features
+
+* **atomic_update:** Allow the atomic_update property ([#60](https://github.com/sous-chefs/resolver/issues/60)) ([f607749](https://github.com/sous-chefs/resolver/commit/f6077499fad928263146dd596de16ed6e0eaef2e))
+
+
+### Bug Fixes
+
+* add frozen_string_literal and apt_update to test recipes ([#89](https://github.com/sous-chefs/resolver/issues/89)) ([8b1140d](https://github.com/sous-chefs/resolver/commit/8b1140d2d56c10d8dc506ae6ca8d21744cc04ab5))
+* **ci:** Update workflows to use release pipeline ([#86](https://github.com/sous-chefs/resolver/issues/86)) ([dde63a3](https://github.com/sous-chefs/resolver/commit/dde63a36b7b365ebbfd055d278a3fa21c03e9539))
+
 ## [4.2.4](https://github.com/sous-chefs/resolver/compare/4.2.3...v4.2.4) (2025-10-16)
 
 
