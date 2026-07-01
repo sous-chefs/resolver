@@ -18,6 +18,7 @@
 #
 
 unified_mode true
+provides :resolver_systemd_resolved_config
 
 include Resolver::Cookbook::Helpers
 
