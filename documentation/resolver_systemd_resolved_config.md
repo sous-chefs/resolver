@@ -12,8 +12,10 @@ Introduced: v3.0.0
 
 ## Properties
 
+<!-- markdownlint-disable MD060 -->
+
 | Name                   | Type          | Default                          | Description                                                         |
-| ---------------------- | ------------- | -------------------------------- | ------------------------------------------------------------------- |
+| --- | --- | --- | --- |
 | `config_file`          | String        | `/etc/systemd/resolved.conf`     | The path to the systemd-resolved configuration file on disk         |
 | `cookbook`             | String        | `resolver`                       | Cookbook to source configuration file template from                 |
 | `template`             | String        | `resolved.conf.erb`              | Template to use to generate the configuration file                  |
@@ -30,9 +32,11 @@ Introduced: v3.0.0
 | `cache`                | True, False, String | `true`                     | Control DNS caching on the host                                     |
 | `cache_from_localhost` | True, False   | `false`                          | Control DNS caching of a result from a local address on the host    |
 | `dns_stub_listener`    | True, False, String | `nil`                      | Control the DNS stub listener on the host                           |
-| `dns_stub_listener_extra` | True, False, String | `nil`                   |Additional DNS stub sockets to listen on for the host                |
+| `dns_stub_listener_extra` | True, False, String | `nil`                   | Additional DNS stub sockets to listen on for the host               |
 | `read_etc_hosts`       | True, False   | `true`                           | Control resolution of a hostname from the /etc/hosts file           |
 | `resolve_unicast_single_label` | True, False | `false`                    | Control resolution of A and AAAA queries for single-label names over classic DNS |
+
+<!-- markdownlint-enable MD060 -->
 
 ## Examples
 
