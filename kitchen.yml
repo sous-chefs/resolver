@@ -27,6 +27,8 @@ suites:
       - recipe[resolver-test::test_packages]
       - recipe[resolver-test::default]
   - name: systemd_resolved
+    provisioner:
+      named_run_list: systemd_resolved
     run_list:
       - recipe[resolver-test::test_packages]
       - recipe[resolver-test::systemd_resolved]
